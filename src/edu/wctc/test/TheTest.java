@@ -61,4 +61,48 @@ public class TheTest {
         Hand hand = new Hand(cards);
         assertTrue(CheckHand.isFlush(hand));
     }
+
+    @Test
+    public void testIsFourOfAKind() {
+        Deck deck = new Deck();
+        List<Card> cards = new ArrayList<>();
+        cards.add(new Card(Faces.FOUR, Suits.CLUB));
+        cards.add(new Card(Faces.FOUR, Suits.DIAMOND));
+        cards.add(new Card(Faces.FOUR, Suits.SPADE));
+        cards.add(new Card(Faces.FOUR, Suits.HEART));
+        cards.add(new Card(Faces.EIGHT, Suits.CLUB));
+        Hand hand = new Hand(cards);
+        assertTrue(CheckHand.isFourOfAKind(hand));
+
+        cards = new ArrayList<>();
+        cards.add(new Card(Faces.TWO, Suits.CLUB));
+        cards.add(new Card(Faces.FOUR, Suits.DIAMOND));
+        cards.add(new Card(Faces.FOUR, Suits.SPADE));
+        cards.add(new Card(Faces.FOUR, Suits.HEART));
+        cards.add(new Card(Faces.EIGHT, Suits.CLUB));
+        Hand thehand = new Hand(cards);
+        assertTrue(CheckHand.isFourOfAKind(thehand));
+    }
+
+    @Test
+    public void testIsThreeOfAKind() {
+        Deck deck = new Deck();
+        List<Card> cards = new ArrayList<>();
+        cards.add(new Card(Faces.TWO, Suits.CLUB));
+        cards.add(new Card(Faces.FOUR, Suits.DIAMOND));
+        cards.add(new Card(Faces.FOUR, Suits.SPADE));
+        cards.add(new Card(Faces.FOUR, Suits.HEART));
+        cards.add(new Card(Faces.EIGHT, Suits.CLUB));
+        Hand hand = new Hand(cards);
+        assertTrue(CheckHand.isThreeOfAKind(hand));
+
+        cards = new ArrayList<>();
+        cards.add(new Card(Faces.TWO, Suits.CLUB));
+        cards.add(new Card(Faces.FOUR, Suits.DIAMOND));
+        cards.add(new Card(Faces.FOUR, Suits.SPADE));
+        cards.add(new Card(Faces.SIX, Suits.HEART));
+        cards.add(new Card(Faces.EIGHT, Suits.CLUB));
+        Hand thehand = new Hand(cards);
+        assertTrue(CheckHand.isThreeOfAKind(thehand));
+    }
 }
